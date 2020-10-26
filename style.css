@@ -1,0 +1,16 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+.bikes {
+  background-color: yellow;
+  align-self: center;
+  font-size: 5rem;
+  padding: 55px;
+}
+.outline {
+  border: 0px solid black;
+}
