@@ -14,35 +14,30 @@
 
 <body>
   <div class="container">
-    <div id="bikes" class="bikes" title="bikes" id="bikes">
-      <i class="fas fa-biking" name="bike" onmouseover="bikeColor(0)" onmouseout="returnColor(0)"></i>
-      <i class="fas fa-biking" name="bike" onmouseover="bikeColor(1)" onmouseout="returnColor(1)"></i>
-      <i class="fas fa-biking" name="bike" onmouseover="bikeColor(2)" onmouseout="returnColor(2)"></i>
-      <i class="fas fa-biking" name="bike" onmouseover="bikeColor(3)" onmouseout="returnColor(3)"></i>
-      <i class="fas fa-biking" name="bike" onmouseover="bikeColor(4)" onmouseout="returnColor(4)"></i>
+    <div id="bikes" class="bikes outline" title="bikes" id="bikes">
+      <i class="fas fa-biking" name="bike" onclick="fixedColor(0)"></i>
+      <i class="fas fa-biking" name="bike" onclick="fixedColor(1)"></i>
+      <i class="fas fa-biking" name="bike" onclick="fixedColor(2)"></i>
+      <i class="fas fa-biking" name="bike" onclick="fixedColor(3)"></i>
+      <i class="fas fa-biking" name="bike" onclick="fixedColor(4)"></i>
     </div>
   </div>
-
   <script>
-
-    // DECLARACION VARIABLES
-    let order;
-    let position;
-
-    // DECLARACION FUNCIONES PASANDO VALOR COMO PARAMETRO
-    
-    function bikeColor(order) {
+    var position;
+    var positionSaved = 0;
+    function fixedColor(position) {
       let bike = document.getElementsByName("bike");
-      for (let i = 0; i <= order; i++) {
-        bike[i].style.color = "red";
-      }
-    }
 
-    function returnColor(position) {
-      let bike = document.getElementsByName("bike");
-      for (let j = 0; j <= position; j++) {
-        bike[j].style.color = "black";
+      if (positionSaved < position) {
+        for (let i = 0; i <= position; i++) {
+          bike[i].style.color = "red";
+        }
+      } else if (positionSaved > position) {
+        for (let i = position + 1; i <= positionSaved; i++) {
+          bike[i].style.color = "black";
+        }
       }
+      positionSaved = position;
     }
   </script>
 </body>
