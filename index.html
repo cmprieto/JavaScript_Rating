@@ -13,32 +13,47 @@
 </head>
 
 <body>
-  <div class="container">
-    <div id="bikes" class="bikes outline" title="bikes" id="bikes">
-      <i class="fas fa-biking" name="bike" onclick="fixedColor(0)"></i>
-      <i class="fas fa-biking" name="bike" onclick="fixedColor(1)"></i>
-      <i class="fas fa-biking" name="bike" onclick="fixedColor(2)"></i>
-      <i class="fas fa-biking" name="bike" onclick="fixedColor(3)"></i>
-      <i class="fas fa-biking" name="bike" onclick="fixedColor(4)"></i>
+  <div class="container-fluid ">
+    <div id="bikes" class="bikes outline" title="bikes">
+      <i class="fas fa-biking" name="bike"></i>
+      <i class="fas fa-biking" name="bike"></i>
+      <i class="fas fa-biking" name="bike"></i>
+      <i class="fas fa-biking" name="bike"></i>
+      <i class="fas fa-biking" name="bike"></i>
     </div>
   </div>
-  <script>
-    var position;
-    var positionSaved = 0;
-    function fixedColor(position) {
-      let bike = document.getElementsByName("bike");
 
-      if (positionSaved < position) {
-        for (let i = 0; i <= position; i++) {
-          bike[i].style.color = "red";
-        }
-      } else if (positionSaved > position) {
-        for (let i = position + 1; i <= positionSaved; i++) {
-          bike[i].style.color = "black";
-        }
+  <script>
+
+    //  DECLARACION VARIABLES
+
+    var position;
+    let bike = document.getElementsByName("bike");
+    let container = document.getElementsByTagName("div")[0];
+
+
+    // FUNCIONES
+
+    function fixedColor(position) {
+      for (let i = 0; i <= position; i++) {
+        bike[i].style.color = "red";
       }
-      positionSaved = position;
     }
+    function resetColor() {
+      for (let i = 0; i <= 4; i++) {
+        bike[i].style.color = "black";
+      }
+    }
+
+
+    // MANEJADORES EVENTOS
+
+    container.addEventListener("click", resetColor, true);
+    bike[0].addEventListener("click", function () { fixedColor(0) }, false);
+    bike[1].addEventListener("click", function () { fixedColor(1) }, false);
+    bike[2].addEventListener("click", function () { fixedColor(2) }, false);
+    bike[3].addEventListener("click", function () { fixedColor(3) }, false);
+    bike[4].addEventListener("click", function () { fixedColor(4) }, false);
   </script>
 </body>
 

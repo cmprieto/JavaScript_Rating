@@ -1,4 +1,4 @@
-.container {
+.container-fluid {
   min-height: 100vh;
   display: flex;
   flex-direction: row;
@@ -13,5 +13,5 @@
   padding: 55px;
 }
 .outline {
-  border: 0px solid black;
+  border: 5px solid black;
 }
